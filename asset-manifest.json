@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/gdg_recruitment_task/static/css/main.81e362fb.css",
+    "main.js": "/gdg_recruitment_task/static/js/main.ee94cabf.js",
+    "index.html": "/gdg_recruitment_task/index.html",
+    "main.81e362fb.css.map": "/gdg_recruitment_task/static/css/main.81e362fb.css.map",
+    "main.ee94cabf.js.map": "/gdg_recruitment_task/static/js/main.ee94cabf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.81e362fb.css",
+    "static/js/main.ee94cabf.js"
+  ]
+}
