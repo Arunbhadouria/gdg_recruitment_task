@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+# Club Recruitment App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple web application built with React and Firebase to manage recruitment opportunities for university clubs. Clubs can post roles, and students can browse and apply for them.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+-   **Post Opportunities:** Clubs can create new recruitment listings.
+-   **Browse & Apply:** Students can view all available opportunities and submit applications.
+-   **Real-time Database:** Uses Firebase Firestore to store and retrieve data instantly.
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-   **Frontend:** React (Create React App)
+-   **Routing:** React Router
+-   **Database:** Firebase Firestore
+-   **Deployment:** Netlify / Firebase Hosting
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+-   [Node.js](https://nodejs.org/) (v14 or later)
+-   `npm` or `yarn` package manager
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Setup and Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Clone the Repository
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone [https://github.com/your-username/recruitment-app.git](https://github.com/your-username/recruitment-app.git)
+cd recruitment-app
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Install Dependencies
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 3. Set Up Firebase
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1.  Create a project on the [Firebase Console](https://console.firebase.google.com/).
+2.  In your project, go to **Project Settings** > **General**.
+3.  Under "Your apps", click the web icon (`</>`) to create a new web app.
+4.  Copy the `firebaseConfig` object provided.
+5.  In the root of your project, create a new file named `.env`.
+6.  Paste your Firebase config keys into the `.env` file. **Do not commit this file to version control.**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    ```
+    # .env
+    REACT_APP_FIREBASE_API_KEY="your-api-key"
+    REACT_APP_FIREBASE_AUTH_DOMAIN="your-auth-domain"
+    REACT_APP_FIREBASE_PROJECT_ID="your-project-id"
+    REACT_APP_FIREBASE_STORAGE_BUCKET="your-storage-bucket"
+    REACT_APP_FIREBASE_MESSAGING_SENDER_ID="your-messaging-sender-id"
+    REACT_APP_FIREBASE_APP_ID="your-app-id"
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 4. Set Up Firestore Database
 
-## Learn More
+1.  In the Firebase console, go to the **Firestore Database** section.
+2.  Click **Create database** and start in **test mode** for this demo.
+3.  Create two collections: `opportunities` and `applications`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Running the App Locally
 
-### Code Splitting
+Once the setup is complete, you can run the application locally:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm start
+```
 
-### Analyzing the Bundle Size
+This will start the development server, and you can view the app at `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Building for Production
 
-### Making a Progressive Web App
+To create a production-ready build of the app:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm run build
+```
 
-### Advanced Configuration
+This command creates a `build` folder with optimized static assets.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Deployment
 
-### Deployment
+You can deploy the `build` folder to any static site hosting service.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Deploying to Netlify
 
-### `npm run build` fails to minify
+1.  Drag and drop the `build` folder to the [Netlify drop zone](https://app.netlify.com/drop).
+2.  Or, connect your Git repository to Netlify for continuous deployment. Set the build command to `npm run build` and the publish directory to `build`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Deploying to Firebase Hosting
+
+1.  Install the Firebase CLI: `npm install -g firebase-tools`.
+2.  Login to Firebase: `firebase login`.
+3.  Initialize hosting: `firebase init hosting`.
+    -   Select your project.
+    -   Set your public directory to `build`.
+    -   Configure as a single-page app (rewrite all URLs to `/index.html`).
+4.  Deploy: `firebase deploy`.
